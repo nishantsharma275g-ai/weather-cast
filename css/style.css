@@ -1,0 +1,223 @@
+/* ===============================
+   Google Font & Global Styles
+================================ */
+
+:root {
+  --primary: #4f9dff;
+  --secondary: #7bdff6;
+  --glass: rgba(255, 255, 255, 0.15);
+  --border: rgba(255, 255, 255, 0.25);
+
+  --text: #ffffff;
+  --text-light: #d9e9ff;
+
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4f9dff, #5b5ce6);
+  padding: 25px;
+  color: var(--text);
+  transition: background 0.6s ease;
+}
+
+/* ===============================
+        Main Container
+================================ */
+
+.app {
+  width: min(100%, 950px);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+/* ===============================
+           Header
+================================ */
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  color: var(--text-light);
+}
+
+/* ===============================
+        Search Section
+================================ */
+
+.search-box {
+  display: flex;
+
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+#cityInput {
+  flex: 1;
+padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 1.3rem;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+button:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+#locationBtn {
+  width: 100%;
+}
+
+/* ===============================
+       Weather Card
+================================ */
+
+.weather-card {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+#weatherIcon{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin:0 auto 1rem;
+    display:block;
+}
+
+#temperature {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+#cityName {
+  margin-top: 0.4rem;
+  font-size: 1.8rem;
+}
+
+#condition {
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+#lastUpdated {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===============================
+        Weather Details
+================================ */
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1.3rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.detail-card h4 {
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+
+.detail-card p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===============================
+          Status
+================================ */
+
+.status-area {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#errorMessage {
+  color: #ffd5d5;
+  margin-top: 0.5rem;
+}
+
+#loadingMessage {
+  color: #fff7c2;
+}
+
+#cacheMessage {
+  color: #d5ffe2;
+  margin-top: 0.5rem;
+}
+
+/* ===============================
+        Responsive
+================================ */
+
+@media (max-width: 650px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  #temperature {
+    font-size: 3rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+}
