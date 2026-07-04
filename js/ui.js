@@ -16,6 +16,8 @@ const errorMessage = document.getElementById("errorMessage");
 const cacheMessage = document.getElementById("cacheMessage");
 const lastUpdated = document.getElementById("lastUpdated");
 const uv = document.getElementById("uv");
+const starsLayer = document.querySelector(".stars");
+const app = document.querySelector(".app");
 
 // ================================
 // Display Weather
@@ -118,6 +120,44 @@ function updateTheme(condition, isDay) {
     }
 
     document.body.classList.add(theme);
+    // Change glass effect based on weather
+
+    app.className = "app";
+
+    if (theme.includes("clear")) {
+
+        app.classList.add("glass-clear");
+
+    } else if (theme.includes("cloud")) {
+
+        app.classList.add("glass-cloud");
+
+    } else if (theme.includes("rain")) {
+
+        app.classList.add("glass-rain");
+
+    } else if (theme.includes("thunder")) {
+
+        app.classList.add("glass-thunder");
+
+    } else if (theme.includes("snow")) {
+
+        app.classList.add("glass-snow");
+
+    }
+    if (
+        theme === "rain-day" ||
+        theme === "rain-night"
+    ) {
+        rainLayer.style.display = "block";
+    } else {
+        rainLayer.style.display = "none";
+    }
+    if (!isDay) {
+        starsLayer.style.display = "block";
+    } else {
+        starsLayer.style.display = "none";
+    }
 
     console.log("Applied Theme:", theme);
     console.log(document.body.className);
@@ -129,11 +169,11 @@ function updateTheme(condition, isDay) {
 // ================================
 
 function showLoading() {
-    loadingMessage.textContent = "Loading weather...";
+    loadingMessage.style.display = "block";
 }
 
 function hideLoading() {
-    loadingMessage.textContent = "";
+    loadingMessage.style.display = "none";
 }
 
 // ================================
@@ -165,3 +205,39 @@ function clearCacheMessage() {
     cacheMessage.textContent = "";
 
 }
+// ================================
+// Create Rain Animation
+// ================================
+
+function createRain() {
+    rainLayer.innerHTML = "";
+    for (let i = 0; i < 80; i++) {
+        const drop = document.createElement("span");
+        drop.className = "drop";
+        drop.style.left = Math.random() * 100 + "%";
+        drop.style.animationDelay = Math.random() * 2 + "s";
+        drop.style.animationDuration =
+            0.6 + Math.random() * 0.6 + "s";
+        rainLayer.appendChild(drop);
+    }
+}
+createRain();
+
+// ================================
+// Create Stars Animation
+// ================================
+
+function createStars() {
+    starsLayer.innerHTML = "";
+    for (let i = 0; i < 120; i++) {
+        const star = document.createElement("span");
+        star.className = "star";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.animationDelay =
+            Math.random() * 2 + "s";
+        starsLayer.appendChild(star);
+    }
+}
+
+createStars();

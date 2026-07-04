@@ -10,13 +10,18 @@
 
     <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
   </head>
 
-  <body>
+  <body> 
     <div class="weather-effects">
+
+    <div class="stars"></div>
+
+    <div class="rain"></div>
+
+</div>
 
     <div class="rain"></div>
 
@@ -25,8 +30,9 @@
       <!-- ================= Header ================= -->
 
       <header class="header">
-        <h1 class="logo">WeatherCast</h1>
-
+        <h1 class="logo">
+    Weather<span>Cast</span>
+</h1>
         <p class="subtitle">Get live weather updates anywhere 🌍</p>
       </header>
 
@@ -93,10 +99,8 @@
       <!-- ================= Status ================= -->
 
       <section class="status-area">
-        <p id="loadingMessage"></p>
-
+        <div id="loadingMessage" class="loader"></div>
         <p id="errorMessage"></p>
-
         <p id="cacheMessage"></p>
       </section>
     </main>
