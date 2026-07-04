@@ -16,3 +16,25 @@ async function getWeatherByCity(city) {
         throw error;
     }
 }
+async function getWeatherByCoordinates(latitude, longitude) {
+
+    const url =
+        `${BASE_URL}?key=${API_KEY}&q=${latitude},${longitude}&aqi=yes`;
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Unable to fetch your location weather.");
+        }
+
+        return await response.json();
+
+    } catch (error) {
+
+        throw error;
+
+    }
+
+}

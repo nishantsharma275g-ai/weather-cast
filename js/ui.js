@@ -13,6 +13,9 @@ const weatherIcon = document.getElementById("weatherIcon");
 const rainLayer = document.querySelector(".rain");
 const loadingMessage = document.getElementById("loadingMessage");
 const errorMessage = document.getElementById("errorMessage");
+const cacheMessage = document.getElementById("cacheMessage");
+const lastUpdated = document.getElementById("lastUpdated");
+const uv = document.getElementById("uv");
 
 // ================================
 // Display Weather
@@ -47,6 +50,11 @@ function displayWeather(data) {
 
     visibility.textContent =
         `${data.current.vis_km} km`;
+    uv.textContent =
+        data.current.uv;
+
+    lastUpdated.textContent =
+        `Last Updated: ${data.current.last_updated}`;
 
     weatherIcon.src =
         "https:" + data.current.condition.icon;
@@ -134,4 +142,26 @@ function hideLoading() {
 
 function showError(message) {
     errorMessage.textContent = message;
+}
+
+// ================================
+// Cache Status
+// ================================
+
+function showCacheMessage(message) {
+
+    cacheMessage.textContent = message;
+
+    setTimeout(() => {
+
+        cacheMessage.textContent = "";
+
+    }, 3000);
+
+}
+
+function clearCacheMessage() {
+
+    cacheMessage.textContent = "";
+
 }
